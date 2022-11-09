@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+    display: flex;
+    justify-content: center;
+    word-wrap: break-word;
+    background-color: rgb(212, 212, 212);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.block {
+    display: block;
+    width: 700px;
+    height: 100vh;
+    word-wrap: break-word;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.myBtn {
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    background: transparent;
+    border: 1px solid gray;
+    border-radius: 20%;
+    margin: 20px;
+    box-shadow:0 0 15px 4px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+.myInput {
+    font-size: 17px;
+    padding: 3px 70px;
+    margin: 2px 5px 10px 10px;
+    border: 1px solid gray;
+    box-shadow:0 0 15px 4px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.redButt {
+    background-color: rgb(241, 160, 160);
+    width: 22px;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: scale(0.9);
+    border: 0ch;
+}
+.redButt:hover {
+    transform: scale(1);
+}
+
+.hr {
+    margin: 15px 0;
+}
+
+.compl {
+    display: flex;
+    margin: 20px 15px;
+    font-size: 19px;
+}
+
+.emp {
+    display: flex;
+    justify-content: center;
+    word-wrap: break-word;
+    font-size: 30px;
+}
+
+.list {
+    font-size: 20px;
 }
