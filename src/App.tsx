@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState, useMemo } from "react";
 import "./App.css";
 import List from "./List";
+import MyInputFile from "./MyInputFile";
 import MySelect from "./MySelect";
 import TodoItem from "./TodoItem";
 import { ITodo } from "./typest/typest";
@@ -15,7 +16,7 @@ function App() {
     fetchTodos();
   }, []);
 
-  // useMemo(() => comp, [todos])
+
 
   async function fetchTodos() {
     try {
@@ -30,10 +31,11 @@ function App() {
 
   const addNewToDo = (e: any) => {
     e.preventDefault();
-    const newTODO: any = {
+    const newTODO: ITodo = {
       id: todos.length + 1,
       title: newToDos,
       completed: false,
+      date: new Date().toLocaleString()
     };
     setTodos([...todos, newTODO]);
     console.log(todos);
@@ -45,8 +47,7 @@ function App() {
   };
 
   let ind = 1;
-  // const comp = [...todos].filter((t) => t.completed);
-  // const noComp = [...todos].filter((t) => !t.completed);
+  
 
   const sortToDo = (sort: string) => {
     setSelectedSort(sort);
@@ -61,8 +62,7 @@ function App() {
     if (sort === "noCompleted") {
       setTodos([...todos].sort((a: ITodo, b: ITodo) => (a.completed ? 1 : -1)));
     }
-    // if(sort === 'onlyCompleted') {setTodos(comp)};
-    // if(sort === 'onlyNoCompleted') {setTodos(noComp)};
+    
     if (sort === "reverse") {
       setTodos([...todos].sort((a: ITodo, b: ITodo) => -1));
     }
@@ -77,15 +77,15 @@ function App() {
         if (todo.id !== id) {
           return [...acc, todo];
         }
-        return [...acc, { ...todo, completed: !todo.completed }];
+        return [...acc, { ...todo, completed: !todo.completed}];
       }, [])
     );
   };
 
-  // let ch: any = todos.filter(t => t.completed);
 
   return (
     <div className="block">
+      <MyInputFile></MyInputFile>
       <MySelect
         value={selectedSort}
         onClick={sortToDo}
@@ -95,8 +95,6 @@ function App() {
           { value: "completed", name: "COMPLETED..." },
           { value: "noCompleted", name: "NO_COMPLETED..." },
           { value: "reverse", name: "REVERSE..." },
-          // { value: "onlyCompleted", name: "ONLY_COMPLETED..." },
-          // { value: "onlyNoCompleted", name: "ONLY_NO_COMPLETED..." },
           { value: "seeAll", name: "SEE_ALL..." },
         ]}
       />

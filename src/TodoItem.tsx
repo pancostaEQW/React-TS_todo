@@ -8,22 +8,26 @@ interface TodoItemProps {
     button?: any;
     remove?: any;
     ind: number;
-    toggle: any;
+    toggle: (id: number) => void;
 }
+let mydate = new Date().toLocaleString()
 
 const TodoItem: FC<TodoItemProps> = ( {todo, remove, ind, toggle} ) => {
-  // const [isChecked, setIsChecked] = useState(todo.completed);
 
-  // const handelCheckBox = () => {
-  //   setIsChecked(!isChecked)
+  // const [mydate, setMydate] = useState(new Date().toLocaleString())
+  // let mydate = new Date(todo.date).toLocaleString()
+
+  // const newDate = () => {
+  //   setMydate(new Date().toLocaleString())
   // }
 
-  // const rofl = isChecked ? isChecked : todo.completed
+  // let dta = new Date().toLocaleString()
 
   return (
-    <div>
+    <div className='littlebox' >
        <Checkbox checked={todo.completed} onChange={() => toggle(todo.id)} />
     {todo.id = ind}. {todo.title} <button onClick={() => remove(todo)} className='redButt'> X </button>
+    <div>{todo.date}</div>
     </div>
   )
 }
