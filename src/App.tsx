@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import List from "./List";
 import MyInputFile from "./MyInputFile";
@@ -15,8 +15,6 @@ function App() {
   useEffect(() => {
     fetchTodos();
   }, []);
-
-
 
   async function fetchTodos() {
     try {
